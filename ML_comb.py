@@ -18,7 +18,7 @@ if __name__ == "__main__":
     # read data into a DataFrame
     dataset = spark.read.csv('DS_2019_public.csv', header=True, inferSchema=True)
     new_df = dataset.replace([1, 2, 3, 4, 5], [0, 0, 1, 0, 0], 'Climate_Region_Pub')
-
+    
     # Feature Engineering
     df_assembler = VectorAssembler(inputCols=['DIVISION', 'REPORTABLE_DOMAIN', 'TOTALDOLCOL', 'KWHCOL', 'BTUELCOL'],
                                    outputCol="features")
